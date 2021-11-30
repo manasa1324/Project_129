@@ -5,6 +5,8 @@ leftWristY = 0;
 rightWristX = 0;
 rightWristY = 0;
 scoreLeftWrist = 0;
+song1_status = "";
+song2_status = "";
 
 function preload()
 {
@@ -37,13 +39,15 @@ function draw()
 
     fill("#FF0000");
     stroke("#FF0000");
+    song1_status = song1.isPlaying();
+    song2_status = song2.isPlaying();
 
     if(scoreLeftWrist > 0.2)
     {
         circle(leftWristX, leftWristY, 20);
         song2.stop();
 
-        if(song1 == false)
+        if(song1_status == false)
         {
             song1.play();
             document.getElementById("song_name").innerHTML = "Harry Potter Theme Song";
